@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-893e344d20fcbe42033ed952ef77e74bb4112656	openstack/watcher-distgit-ptl
+# UUID          Group Name
+False 	Non-Interactive Users
+a0bcfd4e6abeb4c8d528d490025fa156567fd6b9       	openstack/watcher-distgit-core
+893e344d20fcbe42033ed952ef77e74bb4112656        	openstack/watcher-distgit-ptl
+global:Registered-Users		Registered Users
