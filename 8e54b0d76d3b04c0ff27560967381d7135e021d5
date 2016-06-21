@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a0b7d60_cf2b1d93",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-06-21T08:37:03Z",
+      "side": 1,
+      "message": "Package name for unit tests should be python-%{service}-tests-unit . See https://www.rdoproject.org/documentation/rdo-packaging-guidelines/#tests-packaging.",
+      "range": {
+        "startLine": 135,
+        "startChar": 16,
+        "endLine": 135,
+        "endChar": 36
+      },
+      "revId": "8e54b0d76d3b04c0ff27560967381d7135e021d5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0b7d60_ef2ee1a4",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-06-21T08:37:03Z",
+      "side": 1,
+      "message": "Package name for tempest plugin should be python-%{service}-tests-tempest . See https://www.rdoproject.org/documentation/rdo-packaging-guidelines/#tests-packaging.",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 45
+      },
+      "revId": "8e54b0d76d3b04c0ff27560967381d7135e021d5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0b7d60_0f1d2574",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-06-21T08:37:03Z",
+      "side": 1,
+      "message": "I think tempest plugin should depend on openstack-tempest and python-tempest-lib.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 54
+      },
+      "revId": "8e54b0d76d3b04c0ff27560967381d7135e021d5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0b7d60_4f40cd56",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-06-21T08:37:03Z",
+      "side": 1,
+      "message": "systemd service files provided by the rpm shouldn\u0027t be marked as config files. They must be replaced on package updates",
+      "range": {
+        "startLine": 255,
+        "startChar": 1,
+        "endLine": 255,
+        "endChar": 81
+      },
+      "revId": "8e54b0d76d3b04c0ff27560967381d7135e021d5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0b7d60_af24d9c6",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-06-21T08:37:03Z",
+      "side": 1,
+      "message": "Same note about systemd services",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 85
+      },
+      "revId": "8e54b0d76d3b04c0ff27560967381d7135e021d5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0b7d60_8f2115b7",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-06-21T08:37:03Z",
+      "side": 1,
+      "message": "Same note about systemd services.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 93
+      },
+      "revId": "8e54b0d76d3b04c0ff27560967381d7135e021d5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
