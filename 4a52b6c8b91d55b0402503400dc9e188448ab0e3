@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1af78d9a_ce19637b",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2016-06-23T10:45:31Z",
+      "side": 1,
+      "message": "does this mean that watcher-api, watcher-applier and watcher-decision-engine are included in 2 packages (their own + common)?",
+      "range": {
+        "startLine": 277,
+        "startChar": 18,
+        "endLine": 277,
+        "endChar": 20
+      },
+      "revId": "4a52b6c8b91d55b0402503400dc9e188448ab0e3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
