@@ -46,6 +46,30 @@
       "revId": "4a52b6c8b91d55b0402503400dc9e188448ab0e3",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa2559ec_0a0a3bd2",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 207
+      },
+      "writtenOn": "2016-06-23T20:14:45Z",
+      "side": 1,
+      "message": "I guess common package should have watcher-db-manage binary.",
+      "parentUuid": "1af78d9a_ae3977da",
+      "range": {
+        "startLine": 277,
+        "startChar": 18,
+        "endLine": 277,
+        "endChar": 20
+      },
+      "revId": "4a52b6c8b91d55b0402503400dc9e188448ab0e3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
