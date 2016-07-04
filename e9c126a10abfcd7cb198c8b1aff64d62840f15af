@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da2a55be_8c6487e6",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-07-04T19:37:33Z",
+      "side": 1,
+      "message": "0750, watcher, root for log folder",
+      "revId": "e9c126a10abfcd7cb198c8b1aff64d62840f15af",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
