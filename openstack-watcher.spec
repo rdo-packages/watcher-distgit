@@ -207,6 +207,7 @@ popd
 mkdir -p %{buildroot}%{_sysconfdir}/watcher/
 mkdir -p %{buildroot}%{_localstatedir}/log/watcher
 mkdir -p %{buildroot}%{_localstatedir}/run/watcher
+mkdir -p %{buildroot}%{_localstatedir}/cache/watcher
 
 install -p -D -m 644 %SOURCE10 %{buildroot}%{_unitdir}/openstack-watcher-api.service
 install -p -D -m 644 %SOURCE11 %{buildroot}%{_unitdir}/openstack-watcher-applier.service
@@ -275,8 +276,9 @@ exit 0
 %dir %{_sysconfdir}/watcher
 %config(noreplace) %attr(-, watcher, watcher) %{_sysconfdir}/watcher/*
 %{_bindir}/watcher-db-manage
-%dir %attr(755, watcher, watcher) /var/run/watcher
-%dir %attr(755, watcher, watcher) /var/log/watcher
+%dir %attr(0755, watcher, watcher) %{_localstatedir}/run/watcher
+%dir %attr(0750, watcher, root) %{_localstatedir}/log/watcher
+%dir %attr(0755, watcher, watcher) %{_localstatedir}/cache/watcher
 
 
 %if 0%{?with_doc}
