@@ -277,7 +277,7 @@ exit 0
 %config(noreplace) %attr(-, watcher, watcher) %{_sysconfdir}/watcher/*
 %{_bindir}/watcher-db-manage
 %dir %attr(755, watcher, watcher) %{_localstatedir}/run/watcher
-%dir %attr(755, watcher, watcher) %{_localstatedir}/log/watcher
+%dir %attr(750, watcher, root) %{_localstatedir}/log/watcher
 %dir %attr(755, watcher, watcher) %{_localstatedir}/cache/watcher
 
 
