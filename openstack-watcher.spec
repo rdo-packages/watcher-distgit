@@ -34,21 +34,22 @@ BuildRequires:  python-debtcollector-doc
 %package -n     python-%{service}
 Summary:        Watcher Python libraries
 
+Requires:       python-APScheduler
 Requires:       python-jsonpatch >= 1.1
-Requires:       python-keystoneauth1 >= 2.1.0
+Requires:       python-keystoneauth1 >= 2.7.0
 Requires:       python-keystonemiddleware >= 4.0.0
 Requires:       python-oslo-concurrency >= 3.8.0
 Requires:       python-oslo-cache >= 1.5.0
-Requires:       python-oslo-config >= 3.9.0
-Requires:       python-oslo-context >= 2.2.0
+Requires:       python-oslo-config >= 3.10.0
+Requires:       python-oslo-context >= 2.4.0
 Requires:       python-oslo-db >= 4.1.0
 Requires:       python-oslo-i18n >= 2.1.0
 Requires:       python-oslo-log >= 1.14.0
-Requires:       python-oslo-messaging >= 4.5.0
-Requires:       python-oslo-policy >= 0.5.0
+Requires:       python-oslo-messaging >= 5.2.0
+Requires:       python-oslo-policy >= 1.9.0
 Requires:       python-oslo-reports >= 0.6.0
 Requires:       python-oslo-service >= 1.10.0
-Requires:       python-oslo-utils >= 3.5.0
+Requires:       python-oslo-utils >= 3.14.0
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       python-pbr >= 1.6
 Requires:       python-pecan >= 1.0.0
@@ -63,7 +64,7 @@ Requires:       python-novaclient >= 2.29.0
 Requires:       python-openstackclient >= 2.1.0
 Requires:       python-six >= 1.9.0
 Requires:       python-sqlalchemy >= 1.0.10
-Requires:       python-stevedore
+Requires:       python-stevedore >= 1.10.0
 Requires:       python-taskflow >= 1.26.0
 Requires:       python-webob >= 1.2.3
 Requires:       python-wsme >= 0.8
@@ -173,6 +174,7 @@ BuildRequires:  python-oslo-log
 BuildRequires:  python-oslo-messaging
 BuildRequires:  python-reno
 BuildRequires:  python-debtcollector
+BuildRequires:  bandit
 
 
 %description    doc
