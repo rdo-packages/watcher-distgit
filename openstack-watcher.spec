@@ -282,7 +282,7 @@ exit 0
 %dir %attr(755, watcher, watcher) %{_localstatedir}/run/watcher
 %dir %attr(750, watcher, root) %{_localstatedir}/log/watcher
 %dir %attr(755, watcher, watcher) %{_localstatedir}/cache/watcher
-
+%{_bindir}/watcher-sync
 
 %if 0%{?with_doc}
 %files doc
@@ -304,8 +304,8 @@ exit 0
 %files -n python-%{service}
 %license LICENSE
 %{python2_sitelib}/%{service}
-%{python2_sitelib}/python_%{service}-*.egg-info
 %exclude %{python2_sitelib}/%{service}/tests
+%{python2_sitelib}/python_%{service}-*.egg-info
 
 %files -n python-%{service}-tests-unit
 %license LICENSE
