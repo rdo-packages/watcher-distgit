@@ -317,3 +317,4 @@ exit 0
 %{python2_sitelib}/watcher_tempest_plugin
 
 %changelog
+# REMOVEME: error caused by commit 
