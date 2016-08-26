@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a106d94_25bbe5c5",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-08-26T13:38:47Z",
+      "side": 1,
+      "message": "Is this an intended change ?",
+      "revId": "3d46e4b6fba71937c16d178ae5e511575a9d789d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
