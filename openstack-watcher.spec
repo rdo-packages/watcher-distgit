@@ -6,8 +6,8 @@
 %global with_doc 0
 
 Name:           openstack-%{service}
-Version:        XXX
-Release:        XXX
+Version:        0.29.0
+Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
@@ -317,3 +317,6 @@ exit 0
 %{python2_sitelib}/watcher_tempest_plugin
 
 %changelog
+* Fri Sep 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.29.0-1
+- Update to 0.29.0
+
