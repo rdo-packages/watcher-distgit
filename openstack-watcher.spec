@@ -11,7 +11,7 @@ Release:        XXX
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
-Source0:        http://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
+Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
 
 # Systemd scripts
 Source10:       openstack-watcher-api.service
