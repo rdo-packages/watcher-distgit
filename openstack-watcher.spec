@@ -6,7 +6,7 @@
 %global with_doc 0
 
 Name:           openstack-%{service}
-Version:        0.30.0
+Version:        0.31.0
 Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
@@ -317,6 +317,9 @@ exit 0
 %{python2_sitelib}/watcher_tempest_plugin
 
 %changelog
+* Thu Sep 29 2016 Alfredo Moralejo <amoralej@redhat.com> 0.31.0-1
+- Update to 0.31.0
+
 * Wed Sep 21 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.30.0-1
 - Update to 0.30.0
 
