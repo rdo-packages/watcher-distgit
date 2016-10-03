@@ -326,3 +326,4 @@ exit 0
 * Fri Sep 16 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.29.0-1
 - Update to 0.29.0
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/watcher/commit/?id=f8233454245274f8e47930595035d495d2e05a43
