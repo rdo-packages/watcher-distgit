@@ -146,8 +146,7 @@ This package contains the Watcher test files.
 %package -n     python-%{service}-tests-tempest
 Summary:        Watcher tempest plugin
 Requires:       %{name}-common = %{version}-%{release}
-Requires:       openstack-tempest
-Requires:       python-tempest-lib
+Requires:       python-tempest >= 12.0.0
 
 %description -n python-watcher-tests-tempest
 This package contains the Watcher tempest plugin files.
