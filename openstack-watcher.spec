@@ -317,3 +317,4 @@ exit 0
 %{python2_sitelib}/watcher_tempest_plugin
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/watcher/commit/?id=eb0da97ea65cb99e2fdb6dcdc00e8870bb287229
