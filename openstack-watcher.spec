@@ -200,6 +200,9 @@ oslo-config-generator --config-file etc/watcher/watcher-config-generator.conf  \
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+%py2_entrypoint python_%{service} %{service}
+
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 pushd doc
@@ -315,5 +318,6 @@ exit 0
 %files -n python-%{service}-tests-tempest
 %license LICENSE
 %{python2_sitelib}/watcher_tempest_plugin
+%{python2_sitelib}/python_%{service}_tests.egg-info
 
 %changelog
