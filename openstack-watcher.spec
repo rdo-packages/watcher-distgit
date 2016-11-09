@@ -199,6 +199,20 @@ oslo-config-generator --config-file etc/watcher/watcher-config-generator.conf  \
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+egg_path=%{buildroot}%{python2_sitelib}/python_%{service}-*.egg-info
+tempest_egg_path=%{buildroot}%{python2_sitelib}/%{service}_tests.egg-info
+mkdir $tempest_egg_path
+grep "tempest\|Tempest" $egg_path/entry_points.txt >$tempest_egg_path/entry_points.txt
+cat > $tempest_egg_path/PKG-INFO <<EOF
+Metadata-Version: 1.1
+Name: %{service}_tests
+Version: %{upstream_version}
+Summary: %{summary} Tempest Plugin
+EOF
+# Remove any reference to Tempest plugin in the main package entry point
+sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
+
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 pushd doc
@@ -314,5 +328,6 @@ exit 0
 %files -n python-%{service}-tests-tempest
 %license LICENSE
 %{python2_sitelib}/watcher_tempest_plugin
+%{python2_sitelib}/%{service}_tests.egg-info
 
 %changelog
