@@ -51,6 +51,7 @@ Requires:       python-oslo-policy >= 1.9.0
 Requires:       python-oslo-reports >= 0.6.0
 Requires:       python-oslo-service >= 1.10.0
 Requires:       python-oslo-utils >= 3.14.0
+Requires:       python-oslo-versionedobjects >= 1.13.0
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       python-pbr >= 1.6
 Requires:       python-pecan >= 1.0.0
