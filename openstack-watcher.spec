@@ -36,39 +36,44 @@ BuildRequires:  python-APScheduler
 Summary:        Watcher Python libraries
 
 Requires:       python-APScheduler
+Requires:       python-enum34
 Requires:       python-jsonpatch >= 1.1
-Requires:       python-keystoneauth1 >= 2.7.0
-Requires:       python-keystonemiddleware >= 4.0.0
+Requires:       python-keystoneauth1 >= 2.18.0
+Requires:       python-keystonemiddleware >= 4.12.0
+Requires:       python-lxml >= 2.3
+Requires:       python-networkx >= 1.10
 Requires:       python-oslo-concurrency >= 3.8.0
 Requires:       python-oslo-cache >= 1.5.0
-Requires:       python-oslo-config >= 2:3.10.0
-Requires:       python-oslo-context >= 2.4.0
-Requires:       python-oslo-db >= 4.1.0
+Requires:       python-oslo-config >= 2:3.14.0
+Requires:       python-oslo-context >= 2.9.0
+Requires:       python-oslo-db >= 4.15.0
 Requires:       python-oslo-i18n >= 2.1.0
-Requires:       python-oslo-log >= 1.14.0
-Requires:       python-oslo-messaging >= 5.2.0
-Requires:       python-oslo-policy >= 1.9.0
+Requires:       python-oslo-log >= 3.11.0
+Requires:       python-oslo-messaging >= 5.14.0
+Requires:       python-oslo-policy >= 1.17.0
 Requires:       python-oslo-reports >= 0.6.0
+Requires:       python-oslo-serialization >= 1.10.0
 Requires:       python-oslo-service >= 1.10.0
-Requires:       python-oslo-utils >= 3.14.0
-Requires:       python-oslo-versionedobjects >= 1.13.0
+Requires:       python-oslo-utils >= 3.18.0
+Requires:       python-oslo-versionedobjects >= 1.17.0
 Requires:       python-paste-deploy >= 1.5.0
-Requires:       python-pbr >= 1.6
+Requires:       python-pbr >= 1.8
 Requires:       python-pecan >= 1.0.0
-Requires:       python-prettytable >= 0.7
+Requires:       python-prettytable >= 0.7.1
 Requires:       python-voluptuous
-Requires:       python-ceilometerclient >= 2.2.1
+Requires:       python-ceilometerclient >= 2.5.0
 Requires:       python-cinderclient >= 1.6.0
-Requires:       python-glanceclient >= 1:2.0.0
-Requires:       python-keystoneclient >= 1:1.7.0
-Requires:       python-neutronclient >= 4.2.0
-Requires:       python-novaclient >= 1:2.29.0
-Requires:       python-openstackclient >= 2.1.0
+Requires:       python-glanceclient >= 1:2.5.0
+Requires:       python-keystoneclient >= 1:3.8.0
+Requires:       python-monascaclient >= 1.1.0
+Requires:       python-neutronclient >= 5.1.0
+Requires:       python-novaclient >= 1:6.0.0
+Requires:       python-openstackclient >= 3.3.0
 Requires:       python-six >= 1.9.0
 Requires:       python-sqlalchemy >= 1.0.10
-Requires:       python-stevedore >= 1.10.0
-Requires:       python-taskflow >= 1.26.0
-Requires:       python-webob >= 1.2.3
+Requires:       python-stevedore >= 1.17.1
+Requires:       python-taskflow >= 2.7.0
+Requires:       python-webob >= 1.6.0
 Requires:       python-wsme >= 0.8
 Requires:       python-setuptools
 
