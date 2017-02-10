@@ -6,8 +6,8 @@
 %global with_doc 0
 
 Name:           openstack-%{service}
-Version:        XXX
-Release:        XXX
+Version:        1.0.0
+Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
@@ -326,3 +326,6 @@ exit 0
 %{python2_sitelib}/python_%{service}_tests.egg-info
 
 %changelog
+* Fri Feb 10 2017 Alfredo Moralejo <amoralej@redhat.com> 1.0.0-1
+- Update to 1.0.0
+
