@@ -97,8 +97,6 @@ Requires: python-%{service} = %{version}-%{release}
 Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
-# Required to compile translation files
-BuildRequires:    python-babel
 
 %description common
 Watcher provides a flexible and scalable resource optimization service
@@ -200,8 +198,6 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 oslo-config-generator --config-file etc/watcher/watcher-config-generator.conf  \
                       --output-file etc/watcher.conf.sample
 
-%{__python2} setup.py compile_catalog -d build/lib/%{service}/locale
-
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
@@ -236,15 +232,6 @@ rm -f %{buildroot}/usr/etc/watcher/watcher-config-generator.conf
 # Move /usr/etc/watcher to /etc/watcher
 mv %{buildroot}/usr/etc/watcher/policy.json %{buildroot}/etc/watcher/policy.json
 rm -rf %{buildroot}/usr/etc
-
-# Install i18n .mo files (.po and .pot are not required)
-install -d -m 755 %{buildroot}%{_datadir}
-rm -f %{buildroot}%{python2_sitelib}/watcher/locale/*/LC_*/watcher*po
-rm -f %{buildroot}%{python2_sitelib}/watcher/locale/*pot
-mv %{buildroot}%{python2_sitelib}/watcher/locale %{buildroot}%{_datadir}/locale
-
-# Find language files
-%find_lang watcher --all-name
 
 %pre common
 USERNAME=watcher
@@ -282,7 +269,7 @@ exit 0
 %{_bindir}/watcher-api
 %{_unitdir}/openstack-watcher-api.service
 
-%files common -f watcher.lang
+%files common
 %license LICENSE
 %dir %{_sysconfdir}/watcher
 %config(noreplace) %attr(-, watcher, watcher) %{_sysconfdir}/watcher/*
