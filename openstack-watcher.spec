@@ -65,6 +65,7 @@ Requires:       python-ceilometerclient >= 2.5.0
 Requires:       python-cinderclient >= 1.6.0
 Requires:       python-glanceclient >= 1:2.5.0
 Requires:       python-gnocchiclient >= 2.7.0
+Requires:       python-ironicclient >= 1:1.11.0
 Requires:       python-keystoneclient >= 1:3.8.0
 Requires:       python-monascaclient >= 1.1.0
 Requires:       python-neutronclient >= 5.1.0
