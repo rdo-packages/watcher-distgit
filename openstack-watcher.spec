@@ -37,6 +37,7 @@ Summary:        Watcher Python libraries
 
 Requires:       python-APScheduler
 Requires:       python-enum34
+Requires:       python-croniter >= 0.3.4
 Requires:       python-jsonpatch >= 1.1
 Requires:       python-keystoneauth1 >= 2.18.0
 Requires:       python-keystonemiddleware >= 4.12.0
