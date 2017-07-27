@@ -198,7 +198,7 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 %build
 %{__python2} setup.py build
-oslo-config-generator --config-file etc/watcher/watcher-config-generator.conf  \
+oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
                       --output-file etc/watcher.conf.sample
 
 %install
@@ -230,7 +230,7 @@ chmod +x %{buildroot}%{_bindir}/watcher*
 # Remove unneeded in production
 rm -f %{buildroot}/usr/etc/watcher.conf.sample
 rm -f %{buildroot}/usr/etc/watcher/README-watcher.conf.txt
-rm -f %{buildroot}/usr/etc/watcher/watcher-config-generator.conf
+rm -rf %{buildroot}/usr/etc/watcher/oslo-config-generator
 
 # Move /usr/etc/watcher to /etc/watcher
 mv %{buildroot}/usr/etc/watcher/policy.json %{buildroot}/etc/watcher/policy.json
