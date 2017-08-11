@@ -164,7 +164,6 @@ This package contains the Watcher tempest plugin files.
 %package        doc
 Summary:        Documentation for OpenStack Workflow Service
 
-BuildRequires:  python-coverage
 BuildRequires:  python-freezegun
 BuildRequires:  python-hacking
 BuildRequires:  python-mock
