@@ -151,15 +151,6 @@ Requires:       %{name}-common = %{version}-%{release}
 %description -n python-watcher-tests-unit
 This package contains the Watcher test files.
 
-%package -n     python-%{service}-tests-tempest
-Summary:        Watcher tempest plugin
-Requires:       %{name}-common = %{version}-%{release}
-Requires:       python-tempest >= 12.0.0
-
-%description -n python-watcher-tests-tempest
-This package contains the Watcher tempest plugin files.
-
-
 %if 0%{?with_doc}
 %package        doc
 Summary:        Documentation for OpenStack Workflow Service
@@ -204,9 +195,6 @@ oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.co
 
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
-
-# Create fake egg-info for the tempest plugin
-%py2_entrypoint python_%{service} %{service}
 
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
@@ -309,12 +297,6 @@ exit 0
 %files -n python-%{service}-tests-unit
 %license LICENSE
 %{python2_sitelib}/%{service}/tests
-
-
-%files -n python-%{service}-tests-tempest
-%license LICENSE
-%{python2_sitelib}/watcher_tempest_plugin
-%{python2_sitelib}/python_%{service}_tests.egg-info
 
 %changelog
 * Mon Aug 28 2017 rdo-trunk <javier.pena@redhat.com> 1.4.1-1
