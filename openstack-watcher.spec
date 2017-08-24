@@ -317,3 +317,4 @@ exit 0
 %{python2_sitelib}/python_%{service}_tests.egg-info
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/watcher/commit/?id=3f0ff1ed7eefe306f0c1930ff62811adfbedb267
