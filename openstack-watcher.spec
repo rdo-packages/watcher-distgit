@@ -6,7 +6,7 @@
 %global with_doc 0
 
 Name:           openstack-%{service}
-Version:        1.4.0
+Version:        1.4.1
 Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
@@ -317,6 +317,9 @@ exit 0
 %{python2_sitelib}/python_%{service}_tests.egg-info
 
 %changelog
+* Mon Aug 28 2017 rdo-trunk <javier.pena@redhat.com> 1.4.1-1
+- Update to 1.4.1
+
 * Tue Aug 22 2017 Alfredo Moralejo <amoralej@redhat.com> 1.4.0-1
 - Update to 1.4.0
 
