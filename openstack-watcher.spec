@@ -7,7 +7,7 @@
 
 Name:           openstack-%{service}
 Version:        1.4.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
@@ -299,6 +299,9 @@ exit 0
 %{python2_sitelib}/%{service}/tests
 
 %changelog
+* Thu Aug 31 2017 Chandan Kumar <chkumar@redhat.com> 1.4.1-2
+- Removed intree tempest plugin reference
+
 * Mon Aug 28 2017 rdo-trunk <javier.pena@redhat.com> 1.4.1-1
 - Update to 1.4.1
 
