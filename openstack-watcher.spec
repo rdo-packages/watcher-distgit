@@ -2,8 +2,7 @@
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
-#FIXME: enable with_doc below when we have python-sphinxcontrib-pecanwsme
-%global with_doc 0
+%global with_doc 1
 
 Name:           openstack-%{service}
 Version:        XXX
@@ -20,6 +19,7 @@ Source12:       openstack-watcher-decision-engine.service
 
 BuildArch:      noarch
 
+BuildRequires:  git
 BuildRequires:  python-devel
 BuildRequires:  python-oslo-config >= 2:4.0.0
 BuildRequires:  python-setuptools
@@ -159,18 +159,41 @@ BuildRequires:  python-freezegun
 BuildRequires:  python-hacking
 BuildRequires:  python-mock
 BuildRequires:  python-oslotest
-BuildRequires:  python-os-test
+BuildRequires:  python-oslo-db
+BuildRequires:  python-oslo-cache
+BuildRequires:  python-croniter
+BuildRequires:  python-jsonschema
+BuildRequires:  python-os-testr
+BuildRequires:  python-pecan
 BuildRequires:  python-subunit
+BuildRequires:  python-networkx
+BuildRequires:  python-cinderclient
+BuildRequires:  python-glanceclient
+BuildRequires:  python-keystoneclient
+BuildRequires:  python-novaclient
+BuildRequires:  python-monascaclient
+BuildRequires:  python-gnocchiclient
+BuildRequires:  python-keystonemiddleware
+BuildRequires:  python-ceilometerclient
+BuildRequires:  python-ironicclient
+BuildRequires:  python-openstackclient
 BuildRequires:  python-testrepository
 BuildRequires:  python-testscenarios
 BuildRequires:  python-testtools
 BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-sphinxcontrib-httpdomain
 BuildRequires:  python-sphinxcontrib-pecanwsme
 BuildRequires:  python-oslo-log
+BuildRequires:  python-oslo-policy
+BuildRequires:  python-oslo-versionedobjects
 BuildRequires:  python-oslo-messaging
+BuildRequires:  python-oslo-reports
 BuildRequires:  python-reno
+BuildRequires:  python-jsonpatch
+BuildRequires:  python-taskflow
+BuildRequires:  python-wsme
+BuildRequires:  python-voluptuous
 BuildRequires:  python-debtcollector
 BuildRequires:  bandit
 
@@ -183,7 +206,7 @@ This package contains the documentation
 
 
 %prep
-%setup -q -n python-%{service}-%{upstream_version}
+%autosetup -n python-%{service}-%{upstream_version} -S git
 
 rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
@@ -197,9 +220,11 @@ oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.co
 
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
-pushd doc
-sphinx-build -b html source build/html
-popd
+%{__python2} setup.py build_sphinx -b html
+rm -rf doc/build/html/.{doctrees,buildinfo}
+#pushd doc
+#sphinx-build -b html source build/html
+#popd
 %endif
 
 mkdir -p %{buildroot}%{_sysconfdir}/watcher/
