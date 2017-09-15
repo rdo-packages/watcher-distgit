@@ -98,9 +98,7 @@ This package contains the Python libraries.
 Summary: Components common for OpenStack Watcher
 
 Requires: python-%{service} = %{version}-%{release}
-Requires(post):   systemd
-Requires(preun):  systemd
-Requires(postun): systemd
+%{?systemd_requires}
 
 %description common
 Watcher provides a flexible and scalable resource optimization service
