@@ -196,6 +196,7 @@ BuildRequires:  python-wsme
 BuildRequires:  python-voluptuous
 BuildRequires:  python-debtcollector
 BuildRequires:  bandit
+BuildRequires:  openstack-macros
 
 
 %description    doc
@@ -208,7 +209,7 @@ This package contains the documentation
 %prep
 %autosetup -n python-%{service}-%{upstream_version} -S git
 
-rm -rf {test-,}requirements.txt tools/{pip,test}-requires
+%py_req_cleanup
 
 %build
 %{__python2} setup.py build
