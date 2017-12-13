@@ -242,7 +242,6 @@ rm -f %{buildroot}/usr/etc/watcher/README-watcher.conf.txt
 rm -rf %{buildroot}/usr/etc/watcher/oslo-config-generator
 
 # Move /usr/etc/watcher to /etc/watcher
-mv %{buildroot}/usr/etc/watcher/policy.json %{buildroot}/etc/watcher/policy.json
 rm -rf %{buildroot}/usr/etc
 
 %pre common
