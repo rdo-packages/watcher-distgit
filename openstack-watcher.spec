@@ -5,8 +5,8 @@
 %global with_doc 1
 
 Name:           openstack-%{service}
-Version:        XXX
-Release:        XXX
+Version:        1.8.0
+Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
@@ -192,7 +192,6 @@ BuildRequires:  python2-taskflow
 BuildRequires:  python2-wsme
 BuildRequires:  python2-voluptuous
 BuildRequires:  python2-debtcollector
-BuildRequires:  bandit
 BuildRequires:  openstack-macros
 
 
@@ -317,3 +316,6 @@ exit 0
 %{python2_sitelib}/%{service}/tests
 
 %changelog
+* Tue Feb 20 2018 RDO <dev@lists.rdoproject.org> 1.8.0-1
+- Update to 1.8.0
+
