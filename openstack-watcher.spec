@@ -192,7 +192,6 @@ BuildRequires:  python2-taskflow
 BuildRequires:  python2-wsme
 BuildRequires:  python2-voluptuous
 BuildRequires:  python2-debtcollector
-BuildRequires:  bandit
 BuildRequires:  openstack-macros
 
 
