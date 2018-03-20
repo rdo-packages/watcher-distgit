@@ -316,3 +316,4 @@ exit 0
 %{python2_sitelib}/%{service}/tests
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/watcher/commit/?id=5eaad337095bb92c9a828aa263dfcd4b4cf35523
