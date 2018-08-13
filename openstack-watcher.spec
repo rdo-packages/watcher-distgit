@@ -21,9 +21,9 @@ BuildArch:      noarch
 
 BuildRequires:  git
 BuildRequires:  python2-devel
-BuildRequires:  python2-oslo-config >= 2:5.1.0
+BuildRequires:  python2-oslo-config >= 2:5.2.0
 BuildRequires:  python2-setuptools
-BuildRequires:  python2-pbr >= 2.0.0
+BuildRequires:  python2-pbr >= 3.1.1
 BuildRequires:  systemd
 BuildRequires:  python2-debtcollector
 BuildRequires:  python-debtcollector-doc
@@ -37,48 +37,48 @@ Summary:        Watcher Python libraries
 
 Requires:       python2-APScheduler
 Requires:       python-enum34
-Requires:       python2-croniter >= 0.3.4
-Requires:       python2-jsonpatch >= 1.16
+Requires:       python2-croniter >= 0.3.20
+Requires:       python2-jsonpatch >= 1.21
 Requires:       python2-jsonschema >= 2.6.0
-Requires:       python2-keystoneauth1 >= 3.3.0
-Requires:       python2-keystonemiddleware >= 4.17.0
-Requires:       python-lxml >= 2.3
-Requires:       python-networkx >= 1.10
-Requires:       python2-oslo-concurrency >= 3.25.0
-Requires:       python2-oslo-cache >= 1.26.0
-Requires:       python2-oslo-config >= 2:5.1.0
-Requires:       python2-oslo-context >= 2.19.2
-Requires:       python2-oslo-db >= 4.27.0
-Requires:       python2-oslo-i18n >= 3.15.3
-Requires:       python2-oslo-log >= 3.36.0
-Requires:       python2-oslo-messaging >= 5.29.0
-Requires:       python2-oslo-policy >= 1.30.0
-Requires:       python2-oslo-reports >= 1.18.0
-Requires:       python2-oslo-serialization >= 2.18.0
-Requires:       python2-oslo-service >= 1.24.0
-Requires:       python2-oslo-utils >= 3.33.0
-Requires:       python2-oslo-versionedobjects >= 1.31.2
-Requires:       python-paste-deploy >= 1.5.0
-Requires:       python2-pbr >= 2.0.0
-Requires:       python2-pecan >= 1.0.0
-Requires:       python2-prettytable >= 0.7.1
+Requires:       python2-keystoneauth1 >= 3.4.0
+Requires:       python2-keystonemiddleware >= 4.21.0
+Requires:       python-lxml >= 3.2.1
+Requires:       python-networkx >= 1.11
+Requires:       python2-oslo-concurrency >= 3.26.0
+Requires:       python2-oslo-cache >= 1.29.0
+Requires:       python2-oslo-config >= 2:5.2.0
+Requires:       python2-oslo-context >= 2.20.0
+Requires:       python2-oslo-db >= 4.35.0
+Requires:       python2-oslo-i18n >= 3.20.0
+Requires:       python2-oslo-log >= 3.37.0
+Requires:       python2-oslo-messaging >= 5.36.0
+Requires:       python2-oslo-policy >= 1.34.0
+Requires:       python2-oslo-reports >= 1.27.0
+Requires:       python2-oslo-serialization >= 2.25.0
+Requires:       python2-oslo-service >= 1.30.0
+Requires:       python2-oslo-utils >= 3.36.0
+Requires:       python2-oslo-versionedobjects >= 1.32.0
+Requires:       python-paste-deploy >= 1.5.2
+Requires:       python2-pbr >= 3.1.1
+Requires:       python2-pecan >= 1.2.1
+Requires:       python2-prettytable >= 0.7.2
 Requires:       python2-voluptuous
-Requires:       python2-ceilometerclient >= 2.5.0
-Requires:       python2-cinderclient >= 3.3.0
-Requires:       python2-glanceclient >= 1:2.8.0
-Requires:       python2-gnocchiclient >= 3.3.1
-Requires:       python2-ironicclient >= 2.2.0
-Requires:       python2-keystoneclient >= 1:3.8.0
-Requires:       python2-monascaclient >= 1.7.0
+Requires:       python2-ceilometerclient >= 2.9.0
+Requires:       python2-cinderclient >= 3.5.0
+Requires:       python2-glanceclient >= 1:2.9.1
+Requires:       python2-gnocchiclient >= 7.0.1
+Requires:       python2-ironicclient >= 2.3.0
+Requires:       python2-keystoneclient >= 3.15.0
+Requires:       python2-monascaclient >= 1.12.0
 Requires:       python2-neutronclient >= 6.7.0
-Requires:       python2-novaclient >= 1:9.1.0
-Requires:       python2-openstackclient >= 3.12.0
-Requires:       python2-six >= 1.10.0
-Requires:       python2-sqlalchemy >= 1.0.10
-Requires:       python2-stevedore >= 1.20.0
-Requires:       python2-taskflow >= 2.16.0
-Requires:       python-webob >= 1.7.1
-Requires:       python2-wsme >= 0.8
+Requires:       python2-novaclient >= 1:10.1.0
+Requires:       python2-openstackclient >= 3.14.0
+Requires:       python2-six >= 1.11.0
+Requires:       python2-sqlalchemy >= 1.2.5
+Requires:       python2-stevedore >= 1.28.0
+Requires:       python2-taskflow >= 3.1.0
+Requires:       python-webob >= 1.7.4
+Requires:       python2-wsme >= 0.9.2
 
 %description -n python-%{service}
 Watcher provides a flexible and scalable resource optimization service for
