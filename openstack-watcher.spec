@@ -179,6 +179,7 @@ BuildRequires:  python2-testscenarios
 BuildRequires:  python2-testtools
 BuildRequires:  python2-sphinx
 BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-sphinxcontrib-apidoc
 BuildRequires:  python-sphinxcontrib-httpdomain
 BuildRequires:  python2-sphinxcontrib-pecanwsme
 BuildRequires:  python2-oslo-log
@@ -217,7 +218,7 @@ oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.co
 
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
-%{__python2} setup.py build_sphinx -b html
+sphinx-build -b html doc/source doc/build/html
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
