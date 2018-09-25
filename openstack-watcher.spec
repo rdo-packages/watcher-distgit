@@ -1,3 +1,14 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %global service watcher
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -20,67 +31,76 @@ Source12:       openstack-watcher-decision-engine.service
 BuildArch:      noarch
 
 BuildRequires:  git
-BuildRequires:  python2-devel
-BuildRequires:  python2-oslo-config >= 2:5.2.0
-BuildRequires:  python2-setuptools
-BuildRequires:  python2-pbr >= 3.1.1
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-oslo-config >= 2:5.2.0
+BuildRequires:  python%{pyver}-setuptools
+BuildRequires:  python%{pyver}-pbr >= 3.1.1
 BuildRequires:  systemd
-BuildRequires:  python2-debtcollector
+BuildRequires:  python%{pyver}-debtcollector
 BuildRequires:  python-debtcollector-doc
-BuildRequires:  python2-APScheduler
+BuildRequires:  python%{pyver}-APScheduler
 
 %description
 %{common_desc}
 
-%package -n     python-%{service}
+%package -n     python%{pyver}-%{service}
 Summary:        Watcher Python libraries
+%{?python_provide:%python_provide python%{pyver}-%{service}}
 
-Requires:       python2-APScheduler
+Requires:       python%{pyver}-APScheduler
+Requires:       python%{pyver}-croniter >= 0.3.19
+Requires:       python%{pyver}-jsonpatch >= 1.21
+Requires:       python%{pyver}-jsonschema >= 2.6.0
+Requires:       python%{pyver}-keystoneauth1 >= 3.4.0
+Requires:       python%{pyver}-keystonemiddleware >= 4.21.0
+Requires:       python%{pyver}-oslo-concurrency >= 3.26.0
+Requires:       python%{pyver}-oslo-cache >= 1.29.0
+Requires:       python%{pyver}-oslo-config >= 2:5.2.0
+Requires:       python%{pyver}-oslo-context >= 2.20.0
+Requires:       python%{pyver}-oslo-db >= 4.35.0
+Requires:       python%{pyver}-oslo-i18n >= 3.20.0
+Requires:       python%{pyver}-oslo-log >= 3.37.0
+Requires:       python%{pyver}-oslo-messaging >= 5.36.0
+Requires:       python%{pyver}-oslo-policy >= 1.34.0
+Requires:       python%{pyver}-oslo-reports >= 1.27.0
+Requires:       python%{pyver}-oslo-serialization >= 2.25.0
+Requires:       python%{pyver}-oslo-service >= 1.30.0
+Requires:       python%{pyver}-oslo-utils >= 3.36.0
+Requires:       python%{pyver}-oslo-versionedobjects >= 1.32.0
+Requires:       python%{pyver}-pbr >= 3.1.1
+Requires:       python%{pyver}-pecan >= 1.2.1
+Requires:       python%{pyver}-prettytable >= 0.7.2
+Requires:       python%{pyver}-voluptuous
+Requires:       python%{pyver}-ceilometerclient >= 2.9.0
+Requires:       python%{pyver}-cinderclient >= 3.5.0
+Requires:       python%{pyver}-glanceclient >= 1:2.9.1
+Requires:       python%{pyver}-gnocchiclient >= 7.0.1
+Requires:       python%{pyver}-ironicclient >= 2.3.0
+Requires:       python%{pyver}-keystoneclient >= 3.15.0
+Requires:       python%{pyver}-monascaclient >= 1.12.0
+Requires:       python%{pyver}-neutronclient >= 6.7.0
+Requires:       python%{pyver}-novaclient >= 1:10.1.0
+Requires:       python%{pyver}-openstackclient >= 3.14.0
+Requires:       python%{pyver}-six >= 1.11.0
+Requires:       python%{pyver}-sqlalchemy >= 1.2.5
+Requires:       python%{pyver}-stevedore >= 1.28.0
+Requires:       python%{pyver}-taskflow >= 3.1.0
+Requires:       python%{pyver}-webob >= 1.7.4
+Requires:       python%{pyver}-wsme >= 0.9.2
+
+# Handle python2 exception
+%if %{pyver} == 2
 Requires:       python-enum34
-Requires:       python2-croniter >= 0.3.19
-Requires:       python2-jsonpatch >= 1.21
-Requires:       python2-jsonschema >= 2.6.0
-Requires:       python2-keystoneauth1 >= 3.4.0
-Requires:       python2-keystonemiddleware >= 4.21.0
 Requires:       python-lxml >= 3.2.1
 Requires:       python-networkx >= 1.10
-Requires:       python2-oslo-concurrency >= 3.26.0
-Requires:       python2-oslo-cache >= 1.29.0
-Requires:       python2-oslo-config >= 2:5.2.0
-Requires:       python2-oslo-context >= 2.20.0
-Requires:       python2-oslo-db >= 4.35.0
-Requires:       python2-oslo-i18n >= 3.20.0
-Requires:       python2-oslo-log >= 3.37.0
-Requires:       python2-oslo-messaging >= 5.36.0
-Requires:       python2-oslo-policy >= 1.34.0
-Requires:       python2-oslo-reports >= 1.27.0
-Requires:       python2-oslo-serialization >= 2.25.0
-Requires:       python2-oslo-service >= 1.30.0
-Requires:       python2-oslo-utils >= 3.36.0
-Requires:       python2-oslo-versionedobjects >= 1.32.0
 Requires:       python-paste-deploy >= 1.5.2
-Requires:       python2-pbr >= 3.1.1
-Requires:       python2-pecan >= 1.2.1
-Requires:       python2-prettytable >= 0.7.2
-Requires:       python2-voluptuous
-Requires:       python2-ceilometerclient >= 2.9.0
-Requires:       python2-cinderclient >= 3.5.0
-Requires:       python2-glanceclient >= 1:2.9.1
-Requires:       python2-gnocchiclient >= 7.0.1
-Requires:       python2-ironicclient >= 2.3.0
-Requires:       python2-keystoneclient >= 3.15.0
-Requires:       python2-monascaclient >= 1.12.0
-Requires:       python2-neutronclient >= 6.7.0
-Requires:       python2-novaclient >= 1:10.1.0
-Requires:       python2-openstackclient >= 3.14.0
-Requires:       python2-six >= 1.11.0
-Requires:       python2-sqlalchemy >= 1.2.5
-Requires:       python2-stevedore >= 1.28.0
-Requires:       python2-taskflow >= 3.1.0
-Requires:       python-webob >= 1.7.4
-Requires:       python2-wsme >= 0.9.2
+%else
+Requires:       python%{pyver}-lxml >= 3.2.1
+Requires:       python%{pyver}-networkx >= 1.10
+Requires:       python%{pyver}-paste-deploy >= 1.5.2
+%endif
 
-%description -n python-%{service}
+%description -n python%{pyver}-%{service}
 Watcher provides a flexible and scalable resource optimization service for
 multi-tenant OpenStack-based clouds. Watcher provides a complete optimization
 loop—including everything from a metrics receiver, complex event processor
@@ -96,7 +116,7 @@ This package contains the Python libraries.
 
 Summary: Components common for OpenStack Watcher
 
-Requires: python-%{service} = %{version}-%{release}
+Requires: python%{pyver}-%{service} = %{version}-%{release}
 %{?systemd_requires}
 
 %description common
@@ -141,59 +161,68 @@ Requires:    %{name}-common = %{version}-%{release}
 This package contains the Watcher Decision Engine, which is one of core
 services of watcher.
 
-%package -n     python-%{service}-tests-unit
+%package -n     python%{pyver}-%{service}-tests-unit
 Summary:        Watcher unit tests
+%{?python_provide:%python_provide python%{pyver}-%{service}-tests-unit}
 Requires:       %{name}-common = %{version}-%{release}
 
-%description -n python-watcher-tests-unit
+%description -n python%{pyver}-watcher-tests-unit
 This package contains the Watcher test files.
 
 %if 0%{?with_doc}
 %package        doc
 Summary:        Documentation for OpenStack Workflow Service
 
-BuildRequires:  python-freezegun
-BuildRequires:  python2-hacking
-BuildRequires:  python2-mock
-BuildRequires:  python2-oslotest
-BuildRequires:  python2-oslo-db
-BuildRequires:  python2-oslo-cache
-BuildRequires:  python2-croniter
-BuildRequires:  python2-jsonschema
-BuildRequires:  python2-os-testr
-BuildRequires:  python2-pecan
-BuildRequires:  python2-subunit
-BuildRequires:  python-networkx
-BuildRequires:  python2-cinderclient
-BuildRequires:  python2-glanceclient
-BuildRequires:  python2-keystoneclient
-BuildRequires:  python2-novaclient
-BuildRequires:  python2-monascaclient
-BuildRequires:  python2-gnocchiclient
-BuildRequires:  python2-keystonemiddleware
-BuildRequires:  python2-ceilometerclient
-BuildRequires:  python2-ironicclient
-BuildRequires:  python2-openstackclient
-BuildRequires:  python2-testrepository
-BuildRequires:  python2-testscenarios
-BuildRequires:  python2-testtools
-BuildRequires:  python2-sphinx
-BuildRequires:  python2-openstackdocstheme
-BuildRequires:  python2-sphinxcontrib-apidoc
-BuildRequires:  python-sphinxcontrib-httpdomain
-BuildRequires:  python2-sphinxcontrib-pecanwsme
-BuildRequires:  python2-oslo-log
-BuildRequires:  python2-oslo-policy
-BuildRequires:  python2-oslo-versionedobjects
-BuildRequires:  python2-oslo-messaging
-BuildRequires:  python2-oslo-reports
-BuildRequires:  python2-reno
-BuildRequires:  python2-jsonpatch
-BuildRequires:  python2-taskflow
-BuildRequires:  python2-wsme
-BuildRequires:  python2-voluptuous
-BuildRequires:  python2-debtcollector
+BuildRequires:  python%{pyver}-hacking
+BuildRequires:  python%{pyver}-mock
+BuildRequires:  python%{pyver}-oslotest
+BuildRequires:  python%{pyver}-oslo-db
+BuildRequires:  python%{pyver}-oslo-cache
+BuildRequires:  python%{pyver}-croniter
+BuildRequires:  python%{pyver}-jsonschema
+BuildRequires:  python%{pyver}-os-testr
+BuildRequires:  python%{pyver}-pecan
+BuildRequires:  python%{pyver}-subunit
+BuildRequires:  python%{pyver}-cinderclient
+BuildRequires:  python%{pyver}-glanceclient
+BuildRequires:  python%{pyver}-keystoneclient
+BuildRequires:  python%{pyver}-novaclient
+BuildRequires:  python%{pyver}-monascaclient
+BuildRequires:  python%{pyver}-gnocchiclient
+BuildRequires:  python%{pyver}-keystonemiddleware
+BuildRequires:  python%{pyver}-ceilometerclient
+BuildRequires:  python%{pyver}-ironicclient
+BuildRequires:  python%{pyver}-openstackclient
+BuildRequires:  python%{pyver}-testrepository
+BuildRequires:  python%{pyver}-testscenarios
+BuildRequires:  python%{pyver}-testtools
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-openstackdocstheme
+BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
+BuildRequires:  python%{pyver}-sphinxcontrib-pecanwsme
+BuildRequires:  python%{pyver}-oslo-log
+BuildRequires:  python%{pyver}-oslo-policy
+BuildRequires:  python%{pyver}-oslo-versionedobjects
+BuildRequires:  python%{pyver}-oslo-messaging
+BuildRequires:  python%{pyver}-oslo-reports
+BuildRequires:  python%{pyver}-reno
+BuildRequires:  python%{pyver}-jsonpatch
+BuildRequires:  python%{pyver}-taskflow
+BuildRequires:  python%{pyver}-wsme
+BuildRequires:  python%{pyver}-voluptuous
+BuildRequires:  python%{pyver}-debtcollector
 BuildRequires:  openstack-macros
+
+# Handle python2 exception
+%if %{pyver} == 2
+BuildRequires:  python-freezegun
+BuildRequires:  python-networkx
+BuildRequires:  python-sphinxcontrib-httpdomain
+%else
+BuildRequires:  python%{pyver}-freezegun
+BuildRequires:  python%{pyver}-networkx
+BuildRequires:  python%{pyver}-sphinxcontrib-httpdomain
+%endif
 
 
 %description    doc
@@ -209,16 +238,16 @@ This package contains the documentation
 %py_req_cleanup
 
 %build
-%{__python2} setup.py build
-oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
+%{pyver_build}
+oslo-config-generator-%{pyver} --config-file etc/watcher/oslo-config-generator/watcher.conf  \
                       --output-file etc/watcher.conf.sample
 
 %install
-%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
+%{pyver_install}
 
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
-sphinx-build -b html doc/source doc/build/html
+sphinx-build-%{pyver} -b html doc/source doc/build/html
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
@@ -306,14 +335,14 @@ exit 0
 %{_unitdir}/openstack-watcher-decision-engine.service
 
 
-%files -n python-%{service}
+%files -n python%{pyver}-%{service}
 %license LICENSE
-%{python2_sitelib}/%{service}
-%{python2_sitelib}/python_%{service}-*.egg-info
-%exclude %{python2_sitelib}/%{service}/tests
+%{pyver_sitelib}/%{service}
+%{pyver_sitelib}/python_%{service}-*.egg-info
+%exclude %{pyver_sitelib}/%{service}/tests
 
-%files -n python-%{service}-tests-unit
+%files -n python%{pyver}-%{service}-tests-unit
 %license LICENSE
-%{python2_sitelib}/%{service}/tests
+%{pyver_sitelib}/%{service}/tests
 
 %changelog
