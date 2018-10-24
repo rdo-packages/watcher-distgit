@@ -317,6 +317,7 @@ exit 0
 %dir %attr(750, watcher, root) %{_localstatedir}/log/watcher
 %dir %attr(755, watcher, watcher) %{_localstatedir}/cache/watcher
 %{_bindir}/watcher-sync
+%{_bindir}/watcher-status
 
 %if 0%{?with_doc}
 %files doc
