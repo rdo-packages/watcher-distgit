@@ -65,6 +65,7 @@ Requires:       python%{pyver}-oslo-policy >= 1.34.0
 Requires:       python%{pyver}-oslo-reports >= 1.27.0
 Requires:       python%{pyver}-oslo-serialization >= 2.25.0
 Requires:       python%{pyver}-oslo-service >= 1.30.0
+Requires:       python%{pyver}-oslo-upgradecheck >= 0.1.0
 Requires:       python%{pyver}-oslo-utils >= 3.36.0
 Requires:       python%{pyver}-oslo-versionedobjects >= 1.32.0
 Requires:       python%{pyver}-pbr >= 3.1.1
@@ -317,6 +318,7 @@ exit 0
 %dir %attr(750, watcher, root) %{_localstatedir}/log/watcher
 %dir %attr(755, watcher, watcher) %{_localstatedir}/cache/watcher
 %{_bindir}/watcher-sync
+%{_bindir}/watcher-status
 
 %if 0%{?with_doc}
 %files doc
