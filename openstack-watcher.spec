@@ -39,6 +39,8 @@ BuildRequires:  systemd
 BuildRequires:  python%{pyver}-debtcollector
 BuildRequires:  python-debtcollector-doc
 BuildRequires:  python%{pyver}-APScheduler
+BuildRequires:  python%{pyver}-microversion-parse
+
 
 %description
 %{common_desc}
@@ -78,6 +80,7 @@ Requires:       python%{pyver}-glanceclient >= 1:2.9.1
 Requires:       python%{pyver}-gnocchiclient >= 7.0.1
 Requires:       python%{pyver}-ironicclient >= 2.3.0
 Requires:       python%{pyver}-keystoneclient >= 3.15.0
+Requires:       python%{pyver}-microversion-parse >= 0.2.1
 Requires:       python%{pyver}-monascaclient >= 1.12.0
 Requires:       python%{pyver}-neutronclient >= 6.7.0
 Requires:       python%{pyver}-novaclient >= 1:10.1.0
