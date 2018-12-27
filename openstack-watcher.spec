@@ -279,7 +279,7 @@ rm -rf %{buildroot}/usr/etc
 %pre common
 USERNAME=watcher
 GROUPNAME=$USERNAME
-HOMEDIR=/home/$USERNAME
+HOMEDIR=%{_localstatedir}/cache/$USERNAME
 getent group $GROUPNAME >/dev/null || groupadd -r $GROUPNAME
 getent passwd $USERNAME >/dev/null ||
     useradd -r -g $GROUPNAME -G $GROUPNAME -d $HOMEDIR -s /sbin/nologin \
