@@ -50,7 +50,7 @@ Summary:        Watcher Python libraries
 %{?python_provide:%python_provide python%{pyver}-%{service}}
 
 Requires:       python%{pyver}-APScheduler
-Requires:       python%{pyver}-croniter >= 0.3.19
+Requires:       python%{pyver}-croniter >= 0.3.20
 Requires:       python%{pyver}-jsonpatch >= 1.21
 Requires:       python%{pyver}-jsonschema >= 2.6.0
 Requires:       python%{pyver}-keystoneauth1 >= 3.4.0
@@ -73,13 +73,12 @@ Requires:       python%{pyver}-oslo-versionedobjects >= 1.32.0
 Requires:       python%{pyver}-pbr >= 3.1.1
 Requires:       python%{pyver}-pecan >= 1.2.1
 Requires:       python%{pyver}-prettytable >= 0.7.2
-Requires:       python%{pyver}-voluptuous
 Requires:       python%{pyver}-ceilometerclient >= 2.9.0
 Requires:       python%{pyver}-cinderclient >= 3.5.0
 Requires:       python%{pyver}-glanceclient >= 1:2.9.1
 Requires:       python%{pyver}-gnocchiclient >= 7.0.1
 Requires:       python%{pyver}-ironicclient >= 2.3.0
-Requires:       python%{pyver}-keystoneclient >= 3.15.0
+Requires:       python%{pyver}-keystoneclient >= 1:3.15.0
 Requires:       python%{pyver}-microversion-parse >= 0.2.1
 Requires:       python%{pyver}-monascaclient >= 1.12.0
 Requires:       python%{pyver}-neutronclient >= 6.7.0
@@ -96,11 +95,11 @@ Requires:       python%{pyver}-wsme >= 0.9.2
 %if %{pyver} == 2
 Requires:       python-enum34
 Requires:       python-lxml >= 3.2.1
-Requires:       python-networkx >= 1.10
+Requires:       python-networkx >= 1.11
 Requires:       python-paste-deploy >= 1.5.2
 %else
 Requires:       python%{pyver}-lxml >= 3.2.1
-Requires:       python%{pyver}-networkx >= 1.10
+Requires:       python%{pyver}-networkx >= 1.11
 Requires:       python%{pyver}-paste-deploy >= 1.5.2
 %endif
 
