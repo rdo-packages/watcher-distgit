@@ -37,7 +37,6 @@ BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  python%{pyver}-pbr >= 3.1.1
 BuildRequires:  systemd
 BuildRequires:  python%{pyver}-debtcollector
-BuildRequires:  python-debtcollector-doc
 BuildRequires:  python%{pyver}-APScheduler
 BuildRequires:  python%{pyver}-microversion-parse
 
