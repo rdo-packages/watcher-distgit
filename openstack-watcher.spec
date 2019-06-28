@@ -312,6 +312,7 @@ exit 0
 %files api
 %license LICENSE
 %{_bindir}/watcher-api
+%{_bindir}/watcher-api-wsgi
 %{_unitdir}/openstack-watcher-api.service
 
 %files common
