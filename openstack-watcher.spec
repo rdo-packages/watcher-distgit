@@ -50,6 +50,7 @@ Summary:        Watcher Python libraries
 
 Requires:       python%{pyver}-APScheduler
 Requires:       python%{pyver}-croniter >= 0.3.20
+Requires:       python%{pyver}-os-resource-classes >= 0.4.0
 Requires:       python%{pyver}-jsonpatch >= 1.21
 Requires:       python%{pyver}-jsonschema >= 2.6.0
 Requires:       python%{pyver}-keystoneauth1 >= 3.4.0
