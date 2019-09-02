@@ -355,3 +355,4 @@ exit 0
 %{pyver_sitelib}/%{service}/tests
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/watcher/commit/?id=7eb10eee0120619f68543578b083bef787e5f7ba
