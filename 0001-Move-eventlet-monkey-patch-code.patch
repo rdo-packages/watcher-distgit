@@ -1,0 +1,74 @@
+From 78574f92e92e28570c219f2106954d7599a842c2 Mon Sep 17 00:00:00 2001
+From: licanwei <li.canwei2@zte.com.cn>
+Date: Fri, 29 Mar 2019 11:48:56 +0800
+Subject: [PATCH] Move eventlet monkey patch code
+
+Eventlet monkey patching is not recommended on top level __init__ [1],
+because Apache WSGI module uses own concurrency model [2] and API
+service under Apache should be runned without eventlet. This patch
+moves eventlet monkey patching code to watcher.cmd module __init__
+(like in nova).
+
+[1] https://specs.openstack.org/openstack/openstack-specs/specs/eventlet-best-practices.html
+[2] http://modwsgi.readthedocs.io/en/develop/user-guides/processes-and-threading.html
+
+Change-Id: Ie5cf67429ea9ef8d00dd7348ce288437ea105c08
+(cherry picked from commit ac3aa94599bbbb5e390158942bd04ed887531ef3)
+---
+ watcher/cmd/__init__.py   | 20 ++++++++++++++++++++
+ watcher/common/service.py |  7 -------
+ 2 files changed, 20 insertions(+), 7 deletions(-)
+
+diff --git a/watcher/cmd/__init__.py b/watcher/cmd/__init__.py
+index e69de29b..567eb130 100644
+--- a/watcher/cmd/__init__.py
++++ b/watcher/cmd/__init__.py
+@@ -0,0 +1,20 @@
++#
++# Licensed under the Apache License, Version 2.0 (the "License"); you may
++# not use this file except in compliance with the License. You may obtain
++# a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
++# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
++# License for the specific language governing permissions and limitations
++# under the License.
++
++# NOTE(licanwei): Do eventlet monkey patching here, instead of in
++# common/service.py.  This allows the API service to run without monkey
++# patching under Apache (which uses its own concurrency model). Mixing
++# concurrency models can cause undefined behavior and potentially API timeouts.
++import eventlet
++
++eventlet.monkey_patch()
+diff --git a/watcher/common/service.py b/watcher/common/service.py
+index 537d9839..0b8d3178 100644
+--- a/watcher/common/service.py
++++ b/watcher/common/service.py
+@@ -17,7 +17,6 @@
+ import datetime
+ import socket
+ 
+-import eventlet
+ from oslo_concurrency import processutils
+ from oslo_config import cfg
+ from oslo_log import _options
+@@ -42,12 +41,6 @@ from watcher.objects import base
+ from watcher.objects import fields as wfields
+ from watcher import version
+ 
+-# NOTE:
+-# Ubuntu 14.04 forces librabbitmq when kombu is used
+-# Unfortunately it forces a version that has a crash
+-# bug.  Calling eventlet.monkey_patch() tells kombu
+-# to use libamqp instead.
+-eventlet.monkey_patch()
+ 
+ NOTIFICATION_OPTS = [
+     cfg.StrOpt('notification_level',
+-- 
+2.20.1
+

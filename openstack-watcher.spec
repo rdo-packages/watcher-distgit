@@ -17,7 +17,7 @@
 
 Name:           openstack-%{service}
 Version:        2.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
@@ -29,6 +29,10 @@ Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{up
 Source10:       openstack-watcher-api.service
 Source11:       openstack-watcher-applier.service
 Source12:       openstack-watcher-decision-engine.service
+
+%if ! 0%{?dlrn}
+Patch0001:      0001-Move-eventlet-monkey-patch-code.patch
+%endif
 
 BuildArch:      noarch
 
@@ -356,6 +360,9 @@ exit 0
 %{pyver_sitelib}/%{service}/tests
 
 %changelog
+* Thu Sep 05 2019 Yatin Karel <ykarel@redhat.com> - 2.0.0-2
+- Apply patch to fix wsgi + eventlet issue
+
 * Wed Apr 10 2019 RDO <dev@lists.rdoproject.org> 2.0.0-1
 - Update to 2.0.0
 
