@@ -207,6 +207,7 @@ BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  python%{pyver}-openstackdocstheme
 BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
 BuildRequires:  python%{pyver}-sphinxcontrib-pecanwsme
+BuildRequires:  python%{pyver}-sphinxcontrib-rsvgconverter
 BuildRequires:  python%{pyver}-oslo-log
 BuildRequires:  python%{pyver}-oslo-policy
 BuildRequires:  python%{pyver}-oslo-versionedobjects
