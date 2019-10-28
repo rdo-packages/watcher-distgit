@@ -5,7 +5,7 @@
 %global with_doc 1
 
 Name:           openstack-%{service}
-Version:        1.8.0
+Version:        1.8.1
 Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
@@ -316,6 +316,9 @@ exit 0
 %{python2_sitelib}/%{service}/tests
 
 %changelog
+* Mon Oct 28 2019 RDO <dev@lists.rdoproject.org> 1.8.1-1
+- Update to 1.8.1
+
 * Tue Feb 20 2018 RDO <dev@lists.rdoproject.org> 1.8.0-1
 - Update to 1.8.0
 
