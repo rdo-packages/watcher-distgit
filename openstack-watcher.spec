@@ -1,4 +1,4 @@
-%global milestone .0rc1
+%global milestone .0rc2
 %global service watcher
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -7,15 +7,13 @@
 
 Name:           openstack-%{service}
 Version:        4.0.0
-Release:        0.1%{?milestone}%{?dist}
+Release:        0.2%{?milestone}%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
 Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
 
-#
-# patches_base=4.0.0.0rc1
-#
+# patches_base=4.0.0.0rc2
 
 # Systemd scripts
 Source10:       openstack-watcher-api.service
@@ -336,6 +334,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Fri May 08 2020 RDO <dev@lists.rdoproject.org> 4.0.0-0.2.0rc1
+- Update to 4.0.0.0rc2
+
 * Thu Apr 30 2020 RDO <dev@lists.rdoproject.org> 4.0.0-0.1.0rc1
 - Update to 4.0.0.0rc1
 
