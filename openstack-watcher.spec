@@ -41,7 +41,7 @@ Requires:       python3-APScheduler
 Requires:       python3-croniter >= 0.3.20
 Requires:       python3-os-resource-classes >= 0.4.0
 Requires:       python3-jsonpatch >= 1.21
-Requires:       python3-jsonschema >= 2.6.0
+Requires:       python3-jsonschema >= 3.2.0
 Requires:       python3-keystoneauth1 >= 3.4.0
 Requires:       python3-keystonemiddleware >= 4.21.0
 Requires:       python3-oslo-concurrency >= 3.26.0
@@ -73,7 +73,6 @@ Requires:       python3-monascaclient >= 1.12.0
 Requires:       python3-neutronclient >= 6.7.0
 Requires:       python3-novaclient >= 1:14.1.0
 Requires:       python3-openstackclient >= 3.14.0
-Requires:       python3-six >= 1.11.0
 Requires:       python3-sqlalchemy >= 1.2.5
 Requires:       python3-stevedore >= 1.28.0
 Requires:       python3-taskflow >= 3.7.1
