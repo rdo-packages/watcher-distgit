@@ -73,7 +73,6 @@ Requires:       python3-monascaclient >= 1.12.0
 Requires:       python3-neutronclient >= 6.7.0
 Requires:       python3-novaclient >= 1:14.1.0
 Requires:       python3-openstackclient >= 3.14.0
-Requires:       python3-six >= 1.11.0
 Requires:       python3-sqlalchemy >= 1.2.5
 Requires:       python3-stevedore >= 1.28.0
 Requires:       python3-taskflow >= 3.7.1
