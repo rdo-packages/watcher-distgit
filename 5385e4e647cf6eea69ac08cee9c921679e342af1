@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d707dce9_dff8ac7d",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-09-18T12:44:43Z",
+      "side": 1,
+      "message": "3.2.0",
+      "range": {
+        "startLine": 44,
+        "startChar": 38,
+        "endLine": 44,
+        "endChar": 43
+      },
+      "revId": "5385e4e647cf6eea69ac08cee9c921679e342af1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
