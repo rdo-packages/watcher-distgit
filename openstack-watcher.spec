@@ -1,4 +1,5 @@
-%global milestone .0rc1
+%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
+%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %global service watcher
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -7,22 +8,31 @@
 
 Name:           openstack-%{service}
 Version:        5.0.0
-Release:        0.1%{?milestone}%{?dist}
+Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
 Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
 
 #
-# patches_base=5.0.0.0rc1
-#
 
 # Systemd scripts
 Source10:       openstack-watcher-api.service
 Source11:       openstack-watcher-applier.service
 Source12:       openstack-watcher-decision-engine.service
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+Source101:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz.asc
+Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
+%endif
 
 BuildArch:      noarch
+
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+BuildRequires:  /usr/bin/gpgv2
+BuildRequires:  openstack-macros
+%endif
 
 BuildRequires:  git
 BuildRequires:  python3-devel
@@ -220,6 +230,10 @@ This package contains the documentation
 
 
 %prep
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+%{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
+%endif
 %autosetup -n python-%{service}-%{upstream_version} -S git
 
 %py_req_cleanup
@@ -335,6 +349,10 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Wed Oct 14 2020 RDO <dev@lists.rdoproject.org> 5.0.0-1
+- Update to 5.0.0
+- Implement sources verification using upstream gpg signature
+
 * Fri Sep 25 2020 RDO <dev@lists.rdoproject.org> 5.0.0-0.1.0rc1
 - Update to 5.0.0.0rc1
 
