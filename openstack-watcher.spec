@@ -32,7 +32,7 @@ BuildRequires:  /usr/bin/gpgv2
 BuildRequires:  openstack-macros
 %endif
 
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  python3-devel
 BuildRequires:  python3-oslo-config >= 2:5.2.0
 BuildRequires:  python3-setuptools
