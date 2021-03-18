@@ -34,7 +34,7 @@ BuildRequires:  openstack-macros
 
 BuildRequires:  git-core
 BuildRequires:  python3-devel
-BuildRequires:  python3-oslo-config >= 2:5.2.0
+BuildRequires:  python3-oslo-config >= 2:6.8.0
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pbr >= 3.1.1
 BuildRequires:  systemd
@@ -59,17 +59,17 @@ Requires:       python3-keystoneauth1 >= 3.4.0
 Requires:       python3-keystonemiddleware >= 4.21.0
 Requires:       python3-oslo-concurrency >= 3.26.0
 Requires:       python3-oslo-cache >= 1.29.0
-Requires:       python3-oslo-config >= 2:5.2.0
+Requires:       python3-oslo-config >= 2:6.8.0
 Requires:       python3-oslo-context >= 2.21.0
-Requires:       python3-oslo-db >= 4.35.0
+Requires:       python3-oslo-db >= 4.44.0
 Requires:       python3-oslo-i18n >= 3.20.0
 Requires:       python3-oslo-log >= 3.37.0
 Requires:       python3-oslo-messaging >= 8.1.2
-Requires:       python3-oslo-policy >= 1.34.0
+Requires:       python3-oslo-policy >= 3.6.0
 Requires:       python3-oslo-reports >= 1.27.0
 Requires:       python3-oslo-serialization >= 2.25.0
 Requires:       python3-oslo-service >= 1.30.0
-Requires:       python3-oslo-upgradecheck >= 0.1.0
+Requires:       python3-oslo-upgradecheck >= 1.3.0
 Requires:       python3-oslo-utils >= 3.36.0
 Requires:       python3-oslo-versionedobjects >= 1.32.0
 Requires:       python3-pbr >= 3.1.1
@@ -88,12 +88,12 @@ Requires:       python3-novaclient >= 1:14.1.0
 Requires:       python3-openstackclient >= 3.14.0
 Requires:       python3-sqlalchemy >= 1.2.5
 Requires:       python3-stevedore >= 1.28.0
-Requires:       python3-taskflow >= 3.7.1
+Requires:       python3-taskflow >= 3.8.0
 Requires:       python3-wsme >= 0.9.2
 Requires:       python3-futurist >= 1.8.0
 
-Requires:       python3-lxml >= 4.1.1
-Requires:       python3-networkx >= 2.2
+Requires:       python3-lxml >= 4.2.3
+Requires:       python3-networkx >= 2.4
 Requires:       python3-paste-deploy >= 1.5.2
 Requires:       python3-webob >= 1.8.5
 
