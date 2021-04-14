@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
 %global service watcher
@@ -9,14 +8,12 @@
 
 Name:           openstack-%{service}
 Version:        6.0.0
-Release:        0.1%{?milestone}%{?dist}
+Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
 Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
 
-#
-# patches_base=6.0.0.0rc1
 #
 
 # Systemd scripts
@@ -352,6 +349,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Wed Apr 14 2021 RDO <dev@lists.rdoproject.org> 6.0.0-1
+- Update to 6.0.0
+
 * Fri Apr 02 2021 RDO <dev@lists.rdoproject.org> 6.0.0-0.1.0rc1
 - Update to 6.0.0.0rc1
 
