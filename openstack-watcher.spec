@@ -5,7 +5,7 @@
 %global with_doc 1
 
 Name:           openstack-%{service}
-Version:        4.0.0
+Version:        4.0.1
 Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
@@ -332,6 +332,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Tue Aug 10 2021 RDO <dev@lists.rdoproject.org> 4.0.1-1
+- Update to 4.0.1
+
 * Wed May 13 2020 RDO <dev@lists.rdoproject.org> 4.0.0-1
 - Update to 4.0.0
 
