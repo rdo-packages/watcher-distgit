@@ -1,7 +1,7 @@
 # UUID Group Name
 global:Registered-Users	Registered Users
 4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Service Users
 b660cae8a9b996759e0bebd09c61ed462f0b4fda	openstack/watcher-core
 8396065dc5a7e4094c29ea26b4c98e6ac02ca6c3	openstack/watcher-ptl
 global:Anonymous-Users	Anonymous Users
