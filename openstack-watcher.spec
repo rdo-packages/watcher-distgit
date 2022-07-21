@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 %global service watcher
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -7,7 +7,7 @@
 %global with_doc 1
 
 Name:           openstack-%{service}
-Version:        6.0.0
+Version:        6.0.1
 Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
@@ -349,6 +349,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Thu Jul 21 2022 RDO <dev@lists.rdoproject.org> 6.0.1-1
+- Update to 6.0.1
+
 * Wed Apr 14 2021 RDO <dev@lists.rdoproject.org> 6.0.0-1
 - Update to 6.0.0
 
