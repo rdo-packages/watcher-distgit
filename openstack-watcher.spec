@@ -75,7 +75,6 @@ Requires:       python3-oslo-versionedobjects >= 1.32.0
 Requires:       python3-pbr >= 3.1.1
 Requires:       python3-pecan >= 1.3.2
 Requires:       python3-prettytable >= 0.7.2
-Requires:       python3-ceilometerclient >= 2.9.0
 Requires:       python3-cinderclient >= 3.5.0
 Requires:       python3-glanceclient >= 1:2.9.1
 Requires:       python3-gnocchiclient >= 7.0.1
@@ -92,7 +91,7 @@ Requires:       python3-taskflow >= 3.8.0
 Requires:       python3-wsme >= 0.9.2
 Requires:       python3-futurist >= 1.8.0
 
-Requires:       python3-lxml >= 4.2.3
+Requires:       python3-lxml >= 4.5.1
 Requires:       python3-networkx >= 2.4
 Requires:       python3-paste-deploy >= 1.5.2
 Requires:       python3-webob >= 1.8.5
@@ -191,7 +190,6 @@ BuildRequires:  python3-novaclient
 BuildRequires:  python3-monascaclient
 BuildRequires:  python3-gnocchiclient
 BuildRequires:  python3-keystonemiddleware
-BuildRequires:  python3-ceilometerclient
 BuildRequires:  python3-ironicclient
 BuildRequires:  python3-openstackclient
 BuildRequires:  python3-testrepository
