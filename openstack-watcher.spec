@@ -1,4 +1,3 @@
-%global milestone .0rc2
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 %global service watcher
@@ -9,13 +8,12 @@
 
 Name:           openstack-%{service}
 Version:        9.0.0
-Release:        0.2%{?milestone}%{?dist}
+Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
 Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
 
-# patches_base=9.0.0.0rc2
 
 # Systemd scripts
 Source10:       openstack-watcher-api.service
@@ -348,6 +346,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Wed Oct 05 2022 RDO <dev@lists.rdoproject.org> 9.0.0-1
+- Update to 9.0.0
+
 * Tue Sep 27 2022 RDO <dev@lists.rdoproject.org> 9.0.0-0.2.0rc1
 - Update to 9.0.0.0rc2
 
