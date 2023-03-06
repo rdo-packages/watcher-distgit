@@ -50,7 +50,7 @@ BuildRequires:  python3-microversion-parse
 Summary:        Watcher Python libraries
 %{?python_provide:%python_provide python3-%{service}}
 
-Requires:       python3-APScheduler
+Requires:       python3-APScheduler >= 3.5.1
 Requires:       python3-croniter >= 0.3.20
 Requires:       python3-os-resource-classes >= 0.4.0
 Requires:       python3-jsonpatch >= 1.21
@@ -64,7 +64,7 @@ Requires:       python3-oslo-context >= 2.21.0
 Requires:       python3-oslo-db >= 4.44.0
 Requires:       python3-oslo-i18n >= 3.20.0
 Requires:       python3-oslo-log >= 3.37.0
-Requires:       python3-oslo-messaging >= 8.1.2
+Requires:       python3-oslo-messaging >= 14.1.0
 Requires:       python3-oslo-policy >= 3.6.0
 Requires:       python3-oslo-reports >= 1.27.0
 Requires:       python3-oslo-serialization >= 2.25.0
