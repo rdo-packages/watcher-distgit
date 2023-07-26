@@ -3,6 +3,12 @@
 %global service watcher
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate os-api-ref
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 
 %global with_doc 1
 
@@ -10,7 +16,7 @@ Name:           openstack-%{service}
 Version:        XXX
 Release:        XXX
 Summary:        Openstack Infrastructure Optimization service.
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            https://launchpad.net/watcher
 Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
 
@@ -34,67 +40,14 @@ BuildRequires:  openstack-macros
 
 BuildRequires:  git-core
 BuildRequires:  python3-devel
-BuildRequires:  python3-oslo-config >= 2:6.8.0
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr >= 3.1.1
+BuildRequires:  pyproject-rpm-macros
 BuildRequires:  systemd
-BuildRequires:  python3-debtcollector
-BuildRequires:  python3-APScheduler
-BuildRequires:  python3-microversion-parse
-
 
 %description
 %{common_desc}
 
 %package -n     python3-%{service}
 Summary:        Watcher Python libraries
-%{?python_provide:%python_provide python3-%{service}}
-
-Requires:       python3-APScheduler >= 3.5.1
-Requires:       python3-croniter >= 0.3.20
-Requires:       python3-os-resource-classes >= 0.4.0
-Requires:       python3-jsonpatch >= 1.21
-Requires:       python3-jsonschema >= 3.2.0
-Requires:       python3-keystoneauth1 >= 3.4.0
-Requires:       python3-keystonemiddleware >= 4.21.0
-Requires:       python3-oslo-concurrency >= 3.26.0
-Requires:       python3-oslo-cache >= 1.29.0
-Requires:       python3-oslo-config >= 2:6.8.0
-Requires:       python3-oslo-context >= 2.21.0
-Requires:       python3-oslo-db >= 4.44.0
-Requires:       python3-oslo-i18n >= 3.20.0
-Requires:       python3-oslo-log >= 3.37.0
-Requires:       python3-oslo-messaging >= 14.1.0
-Requires:       python3-oslo-policy >= 3.6.0
-Requires:       python3-oslo-reports >= 1.27.0
-Requires:       python3-oslo-serialization >= 2.25.0
-Requires:       python3-oslo-service >= 1.30.0
-Requires:       python3-oslo-upgradecheck >= 1.3.0
-Requires:       python3-oslo-utils >= 3.36.0
-Requires:       python3-oslo-versionedobjects >= 1.32.0
-Requires:       python3-pbr >= 3.1.1
-Requires:       python3-pecan >= 1.3.2
-Requires:       python3-prettytable >= 0.7.2
-Requires:       python3-cinderclient >= 3.5.0
-Requires:       python3-glanceclient >= 1:2.9.1
-Requires:       python3-gnocchiclient >= 7.0.1
-Requires:       python3-ironicclient >= 2.5.0
-Requires:       python3-keystoneclient >= 1:3.15.0
-Requires:       python3-microversion-parse >= 0.2.1
-Requires:       python3-monascaclient >= 1.12.0
-Requires:       python3-neutronclient >= 6.7.0
-Requires:       python3-novaclient >= 1:14.1.0
-Requires:       python3-openstackclient >= 3.14.0
-Requires:       python3-sqlalchemy >= 1.2.5
-Requires:       python3-stevedore >= 1.28.0
-Requires:       python3-taskflow >= 3.8.0
-Requires:       python3-wsme >= 0.9.2
-Requires:       python3-futurist >= 1.8.0
-
-Requires:       python3-lxml >= 4.5.1
-Requires:       python3-networkx >= 2.4
-Requires:       python3-paste-deploy >= 1.5.2
-Requires:       python3-webob >= 1.8.5
 
 %description -n python3-%{service}
 Watcher provides a flexible and scalable resource optimization service for
@@ -113,11 +66,8 @@ This package contains the Python libraries.
 Summary: Components common for OpenStack Watcher
 
 Requires: python3-%{service} = %{version}-%{release}
-%if 0%{?rhel} && 0%{?rhel} < 8
-%{?systemd_requires}
-%else
-%{?systemd_ordering} # does not exist on EL7
-%endif
+
+%{?systemd_ordering}
 
 %description common
 Watcher provides a flexible and scalable resource optimization service
@@ -163,7 +113,6 @@ services of watcher.
 
 %package -n     python3-%{service}-tests-unit
 Summary:        Watcher unit tests
-%{?python_provide:%python_provide python3-%{service}-tests-unit}
 Requires:       %{name}-common = %{version}-%{release}
 
 %description -n python3-watcher-tests-unit
@@ -173,49 +122,7 @@ This package contains the Watcher test files.
 %package        doc
 Summary:        Documentation for OpenStack Workflow Service
 
-BuildRequires:  python3-hacking
-BuildRequires:  python3-mock
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-oslo-db
-BuildRequires:  python3-oslo-cache
-BuildRequires:  python3-croniter
-BuildRequires:  python3-jsonschema
-BuildRequires:  python3-os-testr
-BuildRequires:  python3-pecan
-BuildRequires:  python3-subunit
-BuildRequires:  python3-cinderclient
-BuildRequires:  python3-glanceclient
-BuildRequires:  python3-keystoneclient
-BuildRequires:  python3-novaclient
-BuildRequires:  python3-monascaclient
-BuildRequires:  python3-gnocchiclient
-BuildRequires:  python3-keystonemiddleware
-BuildRequires:  python3-ironicclient
-BuildRequires:  python3-openstackclient
-BuildRequires:  python3-testrepository
-BuildRequires:  python3-testscenarios
-BuildRequires:  python3-testtools
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-openstackdocstheme
-BuildRequires:  python3-sphinxcontrib-apidoc
-BuildRequires:  python3-sphinxcontrib-pecanwsme
 BuildRequires:  python3-sphinxcontrib-rsvgconverter
-BuildRequires:  python3-oslo-log
-BuildRequires:  python3-oslo-policy
-BuildRequires:  python3-oslo-versionedobjects
-BuildRequires:  python3-oslo-messaging
-BuildRequires:  python3-oslo-reports
-BuildRequires:  python3-reno
-BuildRequires:  python3-jsonpatch
-BuildRequires:  python3-taskflow
-BuildRequires:  python3-wsme
-BuildRequires:  python3-voluptuous
-BuildRequires:  python3-debtcollector
-BuildRequires:  openstack-macros
-
-BuildRequires:  python3-freezegun
-BuildRequires:  python3-networkx
-BuildRequires:  python3-sphinxcontrib-httpdomain
 
 
 %description    doc
@@ -232,19 +139,43 @@ This package contains the documentation
 %endif
 %autosetup -n python-%{service}-%{upstream_version} -S git
 
-%py_req_cleanup
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
 
 %build
-%{py3_build}
-oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
-                      --output-file etc/watcher.conf.sample
+%pyproject_wheel
 
 %install
-%{py3_install}
+%pyproject_install
+export PYTHONPATH="%{buildroot}/%{python3_sitelib}" 
+oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
+                      --output-file etc/watcher.conf.sample
+# The automatic value of pybasedir is wrong and unneeded and makes build to fail
+sed -i "/#pybasedir.*/d" %{buildroot}%{_sysconfdir}/%{service}/watcher.conf
+sed -i "/#pybasedir.*/d" %{buildroot}%{_sysconfdir}/%{service}/watcher.conf.sample
 
 %if 0%{?with_doc}
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
-sphinx-build -b html doc/source doc/build/html
+%tox -e docs
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
@@ -337,7 +268,7 @@ exit 0
 %files -n python3-%{service}
 %license LICENSE
 %{python3_sitelib}/%{service}
-%{python3_sitelib}/python_%{service}-*.egg-info
+%{python3_sitelib}/python_%{service}-*.dist-info
 %exclude %{python3_sitelib}/%{service}/tests
 
 %files -n python3-%{service}-tests-unit
