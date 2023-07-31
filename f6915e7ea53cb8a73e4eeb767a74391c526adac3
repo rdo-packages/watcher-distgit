@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd649d37_2678f1ad",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-07-31T15:16:50Z",
+      "side": 1,
+      "message": "i think you need to export it.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 2
+      },
+      "revId": "f6915e7ea53cb8a73e4eeb767a74391c526adac3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
