@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a2e9eaa_28cecf1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-07-31T15:52:46Z",
+      "side": 1,
+      "message": "failed with #pybasedir issue, see https://review.rdoproject.org/r/c/openstack/magnum-distgit/+/49475/1/openstack-magnum.spec#178\n\n",
+      "revId": "fe3f13a4332c50c0a403509bdcbd317571f54c58",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
