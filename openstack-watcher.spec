@@ -1,4 +1,3 @@
-%global milestone .0rc2
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %global service watcher
@@ -15,13 +14,12 @@
 
 Name:           openstack-%{service}
 Version:        12.0.0
-Release:        0.2%{?milestone}%{?dist}
+Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        Apache-2.0
 URL:            https://launchpad.net/watcher
 Source0:        https://tarballs.openstack.org/%{service}/python-%{service}-%{upstream_version}.tar.gz
 
-# patches_base=12.0.0.0rc2
 
 # Systemd scripts
 Source10:       openstack-watcher-api.service
@@ -278,6 +276,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Wed Apr 03 2024 RDO <dev@lists.rdoproject.org> 12.0.0-1
+- Update to 12.0.0
+
 * Fri Mar 29 2024 RDO <dev@lists.rdoproject.org> 12.0.0-0.2.0rc1
 - Update to 12.0.0.0rc2
 
