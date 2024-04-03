@@ -1,0 +1,8 @@
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 03 Apr 2024 12:52:57 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/watcher-distgit/+/52608
+Project: openstack/watcher-distgit
+Branch: refs/heads/caracal-rdo
