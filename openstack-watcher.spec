@@ -8,7 +8,7 @@
 
 Name:           openstack-%{service}
 Version:        10.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        ASL 2.0
 URL:            https://launchpad.net/watcher
@@ -43,6 +43,7 @@ BuildRequires:  systemd
 BuildRequires:  python3-debtcollector
 BuildRequires:  python3-APScheduler
 BuildRequires:  python3-microversion-parse
+BuildRequires:  python3-os-resource-classes
 
 
 %description
@@ -238,11 +239,16 @@ This package contains the documentation
 
 %build
 %{py3_build}
-oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
-                      --output-file etc/watcher.conf.sample
 
 %install
 %{py3_install}
+
+PYTHONPATH="%{buildroot}/%{python3_sitelib}" oslo-config-generator \
+    --config-file etc/watcher/oslo-config-generator/watcher.conf  \
+    --output-file etc/watcher.conf.sample
+
+# The automatic value of pybasedir is wrong and unneeded and makes build to fail
+sed -i "/#pybasedir.*/d" etc/watcher.conf.sample
 
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
@@ -347,6 +353,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Fri Oct 18 2024 Alfredo Moralejo <amoralej@redhat.com> 10.0.0-2
+- Fix config file generation
+
 * Fri Mar 31 2023 RDO <dev@lists.rdoproject.org> 10.0.0-1
 - Update to 10.0.0
 
