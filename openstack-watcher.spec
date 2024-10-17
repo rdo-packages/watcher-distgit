@@ -238,11 +238,12 @@ This package contains the documentation
 
 %build
 %{py3_build}
-oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
-                      --output-file etc/watcher.conf.sample
 
 %install
 %{py3_install}
+
+PYTHONPATH="%{buildroot}/%{python3_sitelib}" oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
+                      --output-file etc/watcher.conf.sample
 
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
