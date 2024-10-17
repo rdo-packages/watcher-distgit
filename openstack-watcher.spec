@@ -43,6 +43,7 @@ BuildRequires:  systemd
 BuildRequires:  python3-debtcollector
 BuildRequires:  python3-APScheduler
 BuildRequires:  python3-microversion-parse
+BuildRequires:  python3-os-resource-classes
 
 
 %description
@@ -238,11 +239,16 @@ This package contains the documentation
 
 %build
 %{py3_build}
-oslo-config-generator --config-file etc/watcher/oslo-config-generator/watcher.conf  \
-                      --output-file etc/watcher.conf.sample
 
 %install
 %{py3_install}
+
+PYTHONPATH="%{buildroot}/%{python3_sitelib}" oslo-config-generator \
+    --config-file etc/watcher/oslo-config-generator/watcher.conf  \
+    --output-file etc/watcher.conf.sample
+
+# The automatic value of pybasedir is wrong and unneeded and makes build to fail
+sed -i "/#pybasedir.*/d" etc/watcher.conf.sample
 
 %if 0%{?with_doc}
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
