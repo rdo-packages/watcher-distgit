@@ -16,6 +16,41 @@
       "message": "I guess you did it in antelope for testing in your usecase but could you backport it to master ?",
       "revId": "f866ba05d65be6fbfcdcbb1519a817769f55e3be",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc671582_c533220a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-10-18T08:25:08Z",
+      "side": 1,
+      "message": "Could you bump the Release? we are still supporting CloudSIG repo for Antelope (it will transition to EOL in a couple of weeks [1])\n\n[1] https://releases.openstack.org/index.html",
+      "revId": "f866ba05d65be6fbfcdcbb1519a817769f55e3be",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cec1c54_cfbd0a45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-10-18T08:25:08Z",
+      "side": 1,
+      "message": "in master it was fixed when we moved to pyproject-rpm-macros [1]\n\n[1] https://review.rdoproject.org/r/c/openstack/watcher-distgit/+/55110",
+      "parentUuid": "bd11b884_4b2f4436",
+      "revId": "f866ba05d65be6fbfcdcbb1519a817769f55e3be",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
