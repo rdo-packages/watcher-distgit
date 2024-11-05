@@ -277,9 +277,12 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+<<<<<<< HEAD   (c93e09 openstack-watcher-13.0.0-1)
 * Wed Oct 02 2024 RDO <dev@lists.rdoproject.org> 13.0.0-1
 - Update to 13.0.0
 
 * Mon Sep 23 2024 RDO <dev@lists.rdoproject.org> 13.0.0-0.1.0rc1
 - Update to 13.0.0.0rc1
+=======
+>>>>>>> CHANGE (48846f Dummy commit to rebuild)
 
