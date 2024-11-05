@@ -281,4 +281,3 @@ exit 0
 
 * Thu Sep 14 2023 RDO <dev@lists.rdoproject.org> 11.0.0-0.1.0rc1
 - Update to 11.0.0.0rc1
-
