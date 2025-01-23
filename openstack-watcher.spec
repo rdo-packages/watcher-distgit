@@ -31,19 +31,40 @@ BuildArch:      noarch
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
 BuildRequires:  /usr/bin/gpgv2
-BuildRequires:  openstack-macros
 %endif
 
 BuildRequires:  git-core
-BuildRequires:  python3-devel
-BuildRequires:  python3-oslo-config >= 2:6.8.0
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr >= 3.1.1
-BuildRequires:  systemd
+BuildRequires:  openstack-macros
 BuildRequires:  python3-debtcollector
 BuildRequires:  python3-APScheduler
 BuildRequires:  python3-microversion-parse
 BuildRequires:  python3-os-resource-classes
+BuildRequires:  python3-cinderclient
+BuildRequires:  python3-croniter
+BuildRequires:  python3-devel
+BuildRequires:  python3-glanceclient
+BuildRequires:  python3-gnocchiclient
+BuildRequires:  python3-ironicclient
+BuildRequires:  python3-jsonpatch
+BuildRequires:  python3-jsonschema
+BuildRequires:  python3-keystoneclient
+BuildRequires:  python3-keystonemiddleware
+BuildRequires:  python3-monascaclient
+BuildRequires:  python3-networkx
+BuildRequires:  python3-novaclient
+BuildRequires:  python3-openstackclient
+BuildRequires:  python3-oslo-cache
+BuildRequires:  python3-oslo-config >= 2:6.8.0
+BuildRequires:  python3-oslo-db
+BuildRequires:  python3-oslo-log
+BuildRequires:  python3-oslo-messaging
+BuildRequires:  python3-oslo-policy
+BuildRequires:  python3-oslo-reports
+BuildRequires:  python3-oslo-versionedobjects
+BuildRequires:  python3-pecan
+BuildRequires:  python3-pbr >= 3.1.1
+BuildRequires:  python3-setuptools
+BuildRequires:  systemd
 
 
 %description
@@ -214,7 +235,6 @@ BuildRequires:  python3-taskflow
 BuildRequires:  python3-wsme
 BuildRequires:  python3-voluptuous
 BuildRequires:  python3-debtcollector
-BuildRequires:  openstack-macros
 
 BuildRequires:  python3-freezegun
 BuildRequires:  python3-networkx
