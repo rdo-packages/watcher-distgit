@@ -4,6 +4,9 @@
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
+# guard for package OSP does not support
+%global rhosp 0
+
 %global with_doc 1
 
 Name:           openstack-%{service}
@@ -65,7 +68,10 @@ BuildRequires:  python3-pecan
 BuildRequires:  python3-pbr >= 3.1.1
 BuildRequires:  python3-setuptools
 BuildRequires:  systemd
-
+%if 0%{rhosp} == 1
+# Needed for downstream to generate config
+BuildRequires:  python3-observabilityclient
+%endif
 
 %description
 %{common_desc}
@@ -119,6 +125,11 @@ Requires:       python3-lxml >= 4.5.1
 Requires:       python3-networkx >= 2.4
 Requires:       python3-paste-deploy >= 1.5.2
 Requires:       python3-webob >= 1.8.5
+
+%if 0%{rhosp} == 1
+# Needed for downstream to generate config
+Requires:       python3-observabilityclient
+%endif
 
 %description -n python3-%{service}
 Watcher provides a flexible and scalable resource optimization service for
