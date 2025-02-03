@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "674e43fc_e148c829",
+        "filename": "openstack-watcher.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2025-02-03T10:42:59Z",
+      "side": 1,
+      "message": "Let\u0027s add it also as Requires under python3-watcher with rhosp conditiona. WDYT?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 6
+      },
+      "revId": "0874558ebbe8e6071f67f978f65ed0d85a96802d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
