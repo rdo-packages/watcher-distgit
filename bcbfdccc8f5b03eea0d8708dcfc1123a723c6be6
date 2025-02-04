@@ -16,6 +16,24 @@
       "message": "Why not for everyone instead of rhosp only ?",
       "revId": "bcbfdccc8f5b03eea0d8708dcfc1123a723c6be6",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d434de_f1fbb611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2025-02-04T08:35:28Z",
+      "side": 1,
+      "message": "https://review.opendev.org/c/openstack/watcher/+/934423 is what introduced the dependency upstream. That will not be backported to antelope upstream.",
+      "parentUuid": "51e6ded2_5461e589",
+      "revId": "bcbfdccc8f5b03eea0d8708dcfc1123a723c6be6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
