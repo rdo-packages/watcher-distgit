@@ -1,0 +1,8 @@
+Verified+2: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Submitted-by: Joel Capitao <jcapitao@redhat.com>
+Submitted-at: Tue, 18 Mar 2025 13:40:53 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/watcher-distgit/+/57047
+Project: openstack/watcher-distgit
+Branch: refs/heads/rpm-master
