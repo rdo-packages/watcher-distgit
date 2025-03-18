@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %global service watcher
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -15,12 +16,16 @@
 %global with_doc 1
 
 Name:           openstack-%{service}
-Version:        XXX
-Release:        XXX
+Version:        14.0.0
+Release:        0.1%{?milestone}%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        Apache-2.0
 URL:            https://launchpad.net/watcher
 Source0:        https://tarballs.openstack.org/%{service}/%{tarsources}-%{upstream_version}.tar.gz
+
+#
+# patches_base=14.0.0.0rc1
+#
 
 # Systemd scripts
 Source10:       openstack-watcher-api.service
@@ -277,4 +282,7 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Tue Mar 18 2025 RDO <dev@lists.rdoproject.org> 14.0.0-0.1.0rc1
+- Update to 14.0.0.0rc1
+
 
