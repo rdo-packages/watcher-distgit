@@ -6,7 +6,7 @@
 %{?dlrn: %global tarsources python-watcher}
 %{!?dlrn: %global tarsources python_watcher}
 # we are excluding some BRs from automatic generator
-%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate os-api-ref
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate os-api-ref PyMySQL
 # Exclude sphinx from BRs if docs are disabled
 %if ! 0%{?with_doc}
 %global excluded_brs %{excluded_brs} sphinx openstackdocstheme
