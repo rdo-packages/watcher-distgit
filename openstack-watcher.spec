@@ -278,3 +278,4 @@ exit 0
 
 %changelog
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/watcher/commit/a1e7156c7e8ffe65de56b90634acc031f1bdf35c
