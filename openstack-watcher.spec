@@ -206,7 +206,7 @@ HOMEDIR=%{_localstatedir}/cache/$USERNAME
 getent group $GROUPNAME >/dev/null || groupadd -r $GROUPNAME
 getent passwd $USERNAME >/dev/null ||
     useradd -r -g $GROUPNAME -G $GROUPNAME -d $HOMEDIR -s /sbin/nologin \
-            -c "Satcher Services" $USERNAME
+            -c "Watcher Services" $USERNAME
 exit 0
 
 %post api
