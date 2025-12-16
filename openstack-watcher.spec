@@ -282,3 +282,4 @@ exit 0
 
 * Mon Sep 23 2024 RDO <dev@lists.rdoproject.org> 13.0.0-0.1.0rc1
 - Update to 13.0.0.0rc1
+# REMOVEME: error caused by commit https://opendev.org/openstack/watcher/commit/56dae6071e1b105c7905975b93e46171e9721be1
