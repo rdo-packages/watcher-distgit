@@ -3,8 +3,7 @@
 %global service watcher
 %global common_desc Watcher is an Infrastructure Optimization service.
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-%{?dlrn: %global tarsources python-watcher}
-%{!?dlrn: %global tarsources python_watcher}
+%global tarsources python_watcher
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate os-api-ref
 # Exclude sphinx from BRs if docs are disabled
