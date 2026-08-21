@@ -15,7 +15,7 @@
 %global with_doc 1
 
 Name:           openstack-%{service}
-Version:        14.0.0
+Version:        14.1.2
 Release:        1%{?dist}
 Summary:        Openstack Infrastructure Optimization service.
 License:        Apache-2.0
@@ -279,6 +279,9 @@ exit 0
 %{python3_sitelib}/%{service}/tests
 
 %changelog
+* Fri Aug 21 2026 RDO <dev@lists.rdoproject.org> 14.1.2-1
+- Update to 14.1.2
+
 * Wed Apr 02 2025 RDO <dev@lists.rdoproject.org> 14.0.0-1
 - Update to 14.0.0
 
