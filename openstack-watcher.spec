@@ -246,6 +246,9 @@ BuildRequires:  python3-taskflow
 BuildRequires:  python3-wsme
 BuildRequires:  python3-voluptuous
 BuildRequires:  python3-debtcollector
+%if 0%{rhosp} == 1
+BuildRequires:  python3-ddt
+%endif
 
 BuildRequires:  python3-freezegun
 BuildRequires:  python3-networkx
